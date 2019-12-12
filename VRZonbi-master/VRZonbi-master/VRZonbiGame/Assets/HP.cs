@@ -6,9 +6,11 @@ public class HP : MonoBehaviour
 {
     public int hitPoint = 100;  //HP
     private Animator animator;
+    UnityEngine.AI.NavMeshAgent nav;
 
     private void Awake()
     {
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
     // Update is called once per frame
@@ -18,6 +20,7 @@ public class HP : MonoBehaviour
         //HPが0になったときに敵を破壊する
         if (hitPoint <= 0)
         {
+            nav.baseOffset = -2.5f;
             animator.SetBool("death", true);
             Destroy(gameObject,5f);
             hitPoint = 1000;
