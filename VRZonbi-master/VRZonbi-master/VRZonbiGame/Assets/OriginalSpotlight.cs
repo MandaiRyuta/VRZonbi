@@ -13,6 +13,8 @@ public class OriginalSpotlight : MonoBehaviour
     [SerializeField]
     Light spotlight;
     bool flag;
+    [SerializeField]
+    private float power;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,7 @@ public class OriginalSpotlight : MonoBehaviour
 
         if(flag)
         {
-            if(spotlight.intensity <= 3)
+            if(spotlight.intensity <= power)
             {
                 spotlight.intensity += 0.5f;
             }

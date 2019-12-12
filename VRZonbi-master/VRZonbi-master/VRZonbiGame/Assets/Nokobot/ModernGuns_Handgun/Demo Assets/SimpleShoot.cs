@@ -18,7 +18,7 @@ public class SimpleShoot : MonoBehaviour
     public Transform casingExitLocation;
 
 
-    public float shotPower = 100f;
+    public float shotPower = 500f;
 
     void Start()
     {
@@ -28,7 +28,12 @@ public class SimpleShoot : MonoBehaviour
 
     void Update()
     {
-        if (GrabAction.GetState(SteamVR_Input_Sources.RightHand))
+        //if (GrabAction.GetState(SteamVR_Input_Sources.RightHand))
+        //{
+        //    GetComponent<Animator>().SetTrigger("Fire");
+        //}
+
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Animator>().SetTrigger("Fire");
         }
